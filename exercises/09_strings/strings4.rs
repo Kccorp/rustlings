@@ -7,7 +7,17 @@
 //
 // No hints this time!
 
-// I AM NOT DONE
+//WRITE UP: We need to call the appropriate function for each value.
+// "" is a string slice by design
+// to_sting() returns a String
+// String::from("hi") create a String from a string slice
+// to_owned() returns a String
+// into() returns a String
+// format!() convert to a String
+// &String::from("abc")[0..1] returns a string slice because we are using the & operator to get a reference to the string slice
+// trim() returns a string slice like the previous exercise
+// replace() returns a String
+// to_lowercase() returns a String
 
 fn string_slice(arg: &str) {
     println!("{}", arg);
@@ -17,14 +27,14 @@ fn string(arg: String) {
 }
 
 fn main() {
-    ???("blue");
-    ???("red".to_string());
-    ???(String::from("hi"));
-    ???("rust is fun!".to_owned());
-    ???("nice weather".into());
-    ???(format!("Interpolation {}", "Station"));
-    ???(&String::from("abc")[0..1]);
-    ???("  hello there ".trim());
-    ???("Happy Monday!".to_string().replace("Mon", "Tues"));
-    ???("mY sHiFt KeY iS sTiCkY".to_lowercase());
+    string_slice("blue");
+    string("red".to_string());
+    string(String::from("hi"));
+    string("rust is fun!".to_owned());
+    string("nice weather".into());
+    string(format!("Interpolation {}", "Station"));
+    string_slice(&String::from("abc")[0..1]);
+    string_slice("  hello there ".trim());
+    string("Happy Monday!".to_string().replace("Mon", "Tues"));
+    string("mY sHiFt KeY iS sTiCkY".to_lowercase());
 }

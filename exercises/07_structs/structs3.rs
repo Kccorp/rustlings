@@ -7,7 +7,13 @@
 // Execute `rustlings hint structs3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+//WRITE UP: the only answer to "is_international" is true or false (bool), so we compare the sender_country and
+// recipient_country to see if they are the same. If they are the same, then the package is not international. If they
+// are different, then the package is international.
+//
+// To get the fees, we multiply the weight_in_grams by the cents_per_gram. And we return the result in u32 same as the
+// two params.
+
 
 #[derive(Debug)]
 struct Package {
@@ -31,12 +37,12 @@ impl Package {
         }
     }
 
-    fn is_international(&self) -> ??? {
-        // Something goes here...
+    fn is_international(&self) -> bool {
+        self.sender_country != self.recipient_country
     }
 
-    fn get_fees(&self, cents_per_gram: u32) -> ??? {
-        // Something goes here...
+    fn get_fees(&self, cents_per_gram: u32) -> u32 {
+        self.weight_in_grams * cents_per_gram
     }
 }
 

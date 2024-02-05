@@ -3,9 +3,9 @@
 // Execute `rustlings hint variables6` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+// WHITE UP: declare the format of the const NUMBER. Or we know that 3 is an i32 by default.
 
-const NUMBER = 3;
+const NUMBER: i32 = 3;
 fn main() {
     println!("Number {}", NUMBER);
 }
