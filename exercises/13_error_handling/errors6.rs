@@ -9,7 +9,15 @@
 // Execute `rustlings hint errors6` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+//WRITE UP: We are given a custom error type ParsePosNonzeroError which is an enum with two variants, Creation and ParseInt.
+// The Creation variant is an enum with two variants, Negative and Zero. The ParseInt variant is a ParseIntError.
+// We are to implement the From trait for ParsePosNonzeroError to convert from CreationError and ParseIntError.
+// We are to implement the parse_pos_nonzero function to return a Result<PositiveNonzeroInteger, ParsePosNonzeroError>.
+// The parse_pos_nonzero function takes a string and returns a Result. The string is parsed to an i64 and then passed to the
+// PositiveNonzeroInteger::new function. If the string cannot be parsed to an i64, a ParseIntError is returned. If the i64 is
+// negative, a CreationError::Negative is returned. If the i64 is zero, a CreationError::Zero is returned. If the i64 is
+// positive, a PositiveNonzeroInteger is returned. We are to implement the From trait for ParsePosNonzeroError to convert from
+// CreationError and ParseIntError.
 
 use std::num::ParseIntError;
 
@@ -25,13 +33,15 @@ impl ParsePosNonzeroError {
         ParsePosNonzeroError::Creation(err)
     }
     // TODO: add another error conversion function here.
-    // fn from_parseint...
+    fn from_parse(err: ParseIntError) -> ParsePosNonzeroError {
+        ParsePosNonzeroError::ParseInt(err)
+    }
 }
 
 fn parse_pos_nonzero(s: &str) -> Result<PositiveNonzeroInteger, ParsePosNonzeroError> {
     // TODO: change this to return an appropriate error instead of panicking
     // when `parse()` returns an error.
-    let x: i64 = s.parse().unwrap();
+    let x: i64 = s.parse().map_err(ParsePosNonzeroError::from_parse)?;
     PositiveNonzeroInteger::new(x).map_err(ParsePosNonzeroError::from_creation)
 }
 

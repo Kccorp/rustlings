@@ -8,7 +8,7 @@
 // Execute `rustlings hint vecs2` or use the `hint` watch subcommand for a hint.
 
 //WRITE UP: We can use the iter_mut() method to iterate over the elements of the vector and multiply each element by 2
-// but, we have to add * to element to pass de bloc and modify the real number otherwise the type format is &mut i32.
+// but, we have to add * to element to pass de bloc and modify the real number otherwise the type format is &mut i32 dereference char.
 
 fn vec_loop(mut v: Vec<i32>) -> Vec<i32> {
     for element in v.iter_mut() {
