@@ -5,11 +5,14 @@
 // Execute `rustlings hint lifetimes3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+//WRITE UP: need to add a lifetime annotation to the Book struct to ensure that the references in the struct live as
+// long as the struct itself. This is done by adding a lifetime annotation to the struct definition, and then using that
+// lifetime annotation in the fields of the struct. It requires because the struct is holding references to strings, and
+// we need to ensure that the references live as long as the struct itself.
 
-struct Book {
-    author: &str,
-    title: &str,
+struct Book<'a> {
+    author: &'a str,
+    title: &'a str,
 }
 
 fn main() {

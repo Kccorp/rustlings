@@ -7,7 +7,9 @@
 // Execute `rustlings hint traits5` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+//WRITE UP: This exercise is similar to the previous one, but instead of comparing two different types, we are comparing
+// two different traits. We need to change the function signature to accept two different traits, and then we can call
+// the functions from each trait on the input parameters.
 
 pub trait SomeTrait {
     fn some_function(&self) -> bool {
@@ -30,7 +32,7 @@ impl SomeTrait for OtherStruct {}
 impl OtherTrait for OtherStruct {}
 
 // YOU MAY ONLY CHANGE THE NEXT LINE
-fn some_func(item: ??) -> bool {
+fn some_func(item: impl SomeTrait + OtherTrait) -> bool {
     item.some_function() && item.other_function()
 }
 
